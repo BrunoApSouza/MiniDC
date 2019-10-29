@@ -1,12 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+#vm dabase
 Vagrant.configure("2") do |config|
-
     config.vm.define "db" do |db|
     db.vm.box = "ubuntu/bionic64"
     db.vm.hostname = "MiniDc-Database"
@@ -16,11 +12,9 @@ Vagrant.configure("2") do |config|
      v.name = "MiniDC-DataBase"
      v.memory = 512
      v.cpus = 1
-
-
     end
   end
-
+  #vm Blog
   config.vm.define "blog" do |blog|
     blog.vm.box = "ubuntu/bionic64"
     blog.vm.hostname = "MiniDC-Blog"
@@ -32,7 +26,7 @@ Vagrant.configure("2") do |config|
      v.cpus = 1
     end
   end
-
+  #vm controller
   config.vm.define "controller" do |controller|
     controller.vm.box = "ubuntu/bionic64"
     controller.vm.hostname = "MiniDC-AnsibleController"
