@@ -2,6 +2,39 @@
   remote_user: vagrant
   become: yes
   tasks:
-          - name: Ajustando o Timezone do Servidor
-            timezone:
-                    name: America/Sao_Paulo     
+   - name: Ajustando o Timezone do Servidor
+    timezone:
+     name: America/Sao_Paulo 
+
+#CONTROLLER
+- hosts: controller
+  remote_user: vagrant
+  become: yes
+  tasks:
+   - name: Criando o Arquivo Info
+    lineinfile:
+     path: /tmp/info
+     line: SERVIDOR ANSIBLE CONTROLLER
+     create: yes
+
+#DATABASE
+- hosts: database
+  remote_user: vagrant
+  become: yes
+  tasks:
+   - name: Criando o Arquivo Info
+    lineinfile:
+     path: /tmp/info
+     line: SERVIDOR DE BANCO DE DADOS MYSQL
+     create: yes
+
+#BLOG
+- hosts: blog
+  remote_user: vagrant
+  become: yes
+  tasks:
+   - name: Criando o Arquivo Info
+    lineinfile:
+     path: /tmp/info
+     line: SERVIDOR DO BLOG WORDPRESS
+     create: yes
